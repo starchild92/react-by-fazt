@@ -2,27 +2,44 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import Document from './components/Document';
+
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+	constructor() {
+		super();
+		this.state = {
+			title: 'blood and sand'
+		}
+		console.log('This is the construvtor fo App Component')
+	}
+
+	handler(e) {
+		console.log(e.target.value)
+	}
+
+	render() {
+		return (
+			<div>
+				<div className="App container-fluid">
+					<img src={logo} className="App-logo" alt="logo" />
+					<nav>
+						Navegation
+					</nav>
+				</div>
+
+				<Document title='Titulo del Jumbotron' />
+
+				<div className='container-fluid'>
+					<div className='row'>
+						<div className='col'>
+							<input className='form-control' onChange={this.handler}></input>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		);
+	}
 }
 
 export default App;
