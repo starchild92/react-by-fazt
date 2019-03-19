@@ -21,10 +21,14 @@ class App extends Component {
 		return (
 			<div>
 				<div className="App container-fluid">
-					<img src={logo} className="App-logo" alt="logo" />
-					<nav>
-						Navegation
-					</nav>
+					<div className="row">
+						<div className="col-1">
+							<img src={logo} className="App-logo" alt="logo" />
+						</div>
+						<div className="col-11 text-left pt-2">
+							<nav>Navegation</nav>
+						</div>
+					</div>
 				</div>
 
 				<Document title='Titulo del Jumbotron' />
