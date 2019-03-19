@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 
-class Document extends Component {
+class Jumbotron extends Component {
+
+	// For some reason I ahve to call super when I use the constructor
+	constructor ()
+	{
+		super();
+		console.log('You just call Jumbotron Constructor')
+	}
+	
   render() {
     return (
       <div className='jumbotron'>
@@ -11,4 +19,4 @@ class Document extends Component {
   }
 }
 
-export default Document;
+export default Jumbotron;

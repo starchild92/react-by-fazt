@@ -2,19 +2,25 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import Document from './components/Document';
+import Jumbotron from './components/Document';
 
 class App extends Component {
 	constructor() {
 		super();
 		this.state = {
-			title: 'blood and sand'
+			title: 'Blood and sand'
 		}
-		console.log('This is the construvtor fo App Component')
+		console.log('This is the constructor fo App Component')
+		this.handler = this.handler.bind(this)
 	}
 
 	handler(e) {
-		console.log(e.target.value)
+		let val = e.target.value
+		
+		this.setState((state) => {
+			state.title = val
+			return { title: state.title }
+		})
 	}
 
 	render() {
@@ -31,7 +37,7 @@ class App extends Component {
 					</div>
 				</div>
 
-				<Document title='Titulo del Jumbotron' />
+				<Jumbotron title={this.state.title} />
 
 				<div className='container-fluid'>
 					<div className='row'>
