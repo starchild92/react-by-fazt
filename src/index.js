@@ -9,21 +9,36 @@ let BooksList = [
 	{ author: 'Emily Bronte', title: 'Wuthering Heights', pages: '346' }
 ];
 
-const Library = ({ books }) => {
-	return (
-		<section>
-			{books.map(
-				(book,i) => (
-					<div name={`well_${i}`} key={i}>
-						<p>Author: {book.author}</p>
-						<p>Title: {book.title}</p>
-						<p>Pages: {book.pages}</p>
-					</div>
-				)
-			)}
+class Library extends React.Component {
+	constructor(props) {
+		super(props)
+		this.state = {
+			open: false
+		}
+	}
 
-		</section>
-	);
+	render() {
+
+		console.log(this.state)
+
+		const {books} = this.props
+
+		return (
+			<section>
+				<h2>This library is { this.state.open ? 'open' : 'close' }</h2>
+				{books.map(
+					(book, i) => (
+						<div name={`well_${i}`} key={i}>
+							<p>Author: {book.author}</p>
+							<p>Title: {book.title}</p>
+							<p>Pages: {book.pages}</p>
+						</div>
+					)
+				)}
+
+			</section>
+		);
+	}
 }
 
 render(
