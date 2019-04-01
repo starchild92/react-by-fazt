@@ -3,33 +3,31 @@ import { render } from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 
-let skiData = {
-	total: 50,
-	powder: 20,
-	backcountry: 10,
-	goal: 100
-}
+let BooksList = [
+	{ author: 'Fiedor Dovstoyeski', title: 'Crime and Punishment', pages: '578' },
+	{ author: 'Virginia Wolf', title: 'Mrs. Dolloway', pages: '230' },
+	{ author: 'Emily Bronte', title: 'Wuthering Heights', pages: '346' }
+];
 
-const SkiCounter = ({total, powder, backcountry, goal}) => {
+const Library = ({ books }) => {
 	return (
 		<section>
-			<div>
-				<p>Total Days: {total}</p>
-				<p>Powder: {powder}</p>
-				<p>Backcountry: {backcountry}</p>
-				<p>Goal: {goal}</p>
-			</div>
+			{books.map(
+				(book,i) => (
+					<div name={`well_${i}`} key={i}>
+						<p>Author: {book.author}</p>
+						<p>Title: {book.title}</p>
+						<p>Pages: {book.pages}</p>
+					</div>
+				)
+			)}
+
 		</section>
 	);
 }
 
 render(
-	<SkiCounter
-		total={skiData.total}
-		powder={0}
-		backcountry={0}
-		goal={0}
-	/>
+	<Library books={BooksList} />
 	, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
