@@ -1,10 +1,36 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { Component } from 'react';
+import { render } from 'react-dom';
 import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+let skiData = {
+	total: 50,
+	powder: 20,
+	backcountry: 10,
+	goal: 100
+}
+
+const SkiCounter = ({total, powder, backcountry, goal}) => {
+	return (
+		<section>
+			<div>
+				<p>Total Days: {total}</p>
+				<p>Powder: {powder}</p>
+				<p>Backcountry: {backcountry}</p>
+				<p>Goal: {goal}</p>
+			</div>
+		</section>
+	);
+}
+
+render(
+	<SkiCounter
+		total={skiData.total}
+		powder={0}
+		backcountry={0}
+		goal={0}
+	/>
+	, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
