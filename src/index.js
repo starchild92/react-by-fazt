@@ -10,11 +10,16 @@ let BooksList = [
 ];
 
 class Library extends React.Component {
-	constructor(props) {
-		super(props)
-		this.state = {
-			open: false
-		}
+	state = { open: false }
+
+	toggleLibrary = () => {
+		this.setState(
+			// cause its asyncronous it can take a while to get the value so its better
+			// we display the prev as we wait for the new one
+			prevState => ({
+				open: !this.state.open
+			})
+		)
 	}
 
 	render() {
@@ -35,7 +40,7 @@ class Library extends React.Component {
 						</div>
 					)
 				)}
-
+				<input type="button" value="Toggle" onClick={this.toggleLibrary} />
 			</section>
 		);
 	}
