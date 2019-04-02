@@ -82,7 +82,7 @@ class Library extends React.Component {
 }*/
 
 class FavouriteColorForm extends Component {
-	state = { value: '' }
+	state = { value: '#000' }
 	newColor = e => {
 		this.setState({ value: e.target.value })
 	}
