@@ -10,7 +10,27 @@ let BooksList = [
 ];
 
 class Library extends React.Component {
-	state = { open: false }
+	state = {
+		open: false,
+		data: [],
+		loading: false
+	}
+
+	componentDidMount() {
+		this.setState({
+			loading: true
+		})
+		fetch('https://hplussport.com/api/products/order/price/sort/asc/qty/3')
+			.then(data => data.json())
+			.then(data => {
+				console.log(data);
+				this.setState({ data, loading: false })
+			});
+	}
+
+	componentDidUpdate() {
+		console.log('Component was updated')
+	}
 
 	toggleLibrary = () => {
 		this.setState(
@@ -24,13 +44,11 @@ class Library extends React.Component {
 
 	render() {
 
-		console.log(this.state)
-
-		const {books} = this.props
+		const { books } = this.props
 
 		return (
 			<section>
-				<h2>This library is { this.state.open ? 'open' : 'close' }</h2>
+				<h2>This library is {this.state.open ? 'open' : 'close'}</h2>
 				{books.map(
 					(book, i) => (
 						<div name={`well_${i}`} key={i}>
@@ -41,6 +59,22 @@ class Library extends React.Component {
 					)
 				)}
 				<input type="button" value="Toggle" onClick={this.toggleLibrary} />
+
+				{
+					this.state.data.map(
+						(item, i) => (
+							<div>
+								<section>
+									<p>{item.name} -  ${item.price} <br></br>
+										{item.description}
+									</p>
+								</section>
+							</div>
+						)
+					)}
+				<p>
+
+				</p>
 			</section>
 		);
 	}
