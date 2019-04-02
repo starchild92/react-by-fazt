@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { render } from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
@@ -81,10 +81,22 @@ class Library extends React.Component {
 	}
 }*/
 
+class FavouriteColorForm extends Component {
+	render () {
+		return (
+			<form>
+				<label>Favorite Color:
+					<input type="color"></input>
+				</label>
+			</form>
+		)
+	}
+}
+
 render(
 	// <Library books={BooksList} />
 	<div>
-		There is nothing to look here
+		<FavouriteColorForm />
 	</div>
 	, document.getElementById('root'));
 
