@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 
+/*
 let BooksList = [
 	{ author: 'Fiedor Dovstoyeski', title: 'Crime and Punishment', pages: '578' },
 	{ author: 'Virginia Wolf', title: 'Mrs. Dolloway', pages: '230' },
@@ -78,10 +79,13 @@ class Library extends React.Component {
 			</section>
 		);
 	}
-}
+}*/
 
 render(
-	<Library books={BooksList} />
+	// <Library books={BooksList} />
+	<div>
+		There is nothing to look here
+	</div>
 	, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
