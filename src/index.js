@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 
-/*
+
 let BooksList = [
 	{ author: 'Fiedor Dovstoyeski', title: 'Crime and Punishment', pages: '578' },
 	{ author: 'Virginia Wolf', title: 'Mrs. Dolloway', pages: '230' },
@@ -79,42 +79,14 @@ class Library extends React.Component {
 			</section>
 		);
 	}
-}*/
-
-class FavouriteColorForm extends Component {
-	state = { value: '#000' }
-	newColor = e => {
-		this.setState({ value: e.target.value })
-	}
-
-	submit = (e) => {
-		console.log(`New Color: ${this.state.value} `)
-		e.preventDefault()
-	}
-
-	render() {
-		return (
-			<div style={{ backgroundColor: this.state.value }}>
-				<form onSubmit={this.submit}>
-					<label>Favorite Color:
-					<input
-							type="color"
-							onChange={this.newColor}
-						></input>
-					</label>
-					<button type="submit">Submit</button>
-				</form>
-			</div>
-		)
-	}
 }
 
-render(
-	// <Library books={BooksList} />
+render (
 	<div>
-		<FavouriteColorForm />
+		<Library books={BooksList} />
 	</div>
-	, document.getElementById('root'));
+	, document.getElementById('root')
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
